@@ -1,0 +1,19 @@
+<h2 class="page-header">Изменение записи</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+{{#if problem}}
+<form method="post" action="/update/?id={{problem.id}}">
+   <div class="form-group">
+    <label>Проблема</label>
+    <p><input type="text" class="form-control" id="issue" name="issue" value="{{problem.issue}}"></p>
+  </div>
+  <div class="form-group">
+    <label>Решение</label>
+    <p><input type="text" class="form-control" id="solution" name="solution" value="{{problem.solution}}"></p>
+  </div>
+  <button type="submit" class="btn btn-default btn-success">Изменить</button>
+</form>
+{{/if}}

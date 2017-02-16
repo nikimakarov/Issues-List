@@ -1,0 +1,41 @@
+<h2 class="page-header">Регистрация</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/users/register">
+   <div class="form-group">
+    <label>Имя</label>
+    <input type="text" class="form-control" placeholder="Имя" name="name">
+  </div>
+  <div class="form-group">
+    <label>Логин</label>
+    <input type="text" class="form-control" placeholder="Логин" name="username">
+  </div>
+   <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" placeholder="Email" name="email">
+  </div>
+  <div class="form-group">
+    <label>Пароль</label>
+    <input type="password" class="form-control" placeholder="Пароль" name="password">
+  </div>
+  <div class="form-group">
+    <label>Подтвердите пароль</label>
+    <input type="password" class="form-control" placeholder="Пароль" name="password2">
+  </div>
+   <div class="form-group">
+    <label>Должность</label>
+    <input type="text" class="form-control" placeholder="Должность" name="job">
+  </div>
+  <div class="btn-group" data-toggle="buttons" action="/submit" method="POST">
+      <label class="btn btn-primary">
+        <input type="radio" name="access" id="option1" value="change">Изменение
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="access" id="option2" value="mark">Оценка
+      </label>
+  </div>
+  <button type="submit" class="btn btn-default">Зарегистрироваться</button>
+</form>

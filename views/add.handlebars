@@ -1,0 +1,17 @@
+<h2 class="page-header">Добавление новой записи</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/add">
+   <div class="form-group">
+    <label>Проблема</label>
+    <input type="text" class="form-control" placeholder="Проблема" name="problem">
+  </div>
+  <div class="form-group">
+    <label>Решение</label>
+    <input type="text" class="form-control" placeholder="Решение" name="solution">
+  </div>
+  <button type="submit" class="btn btn-default btn-success">Добавить</button>
+</form>

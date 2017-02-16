@@ -1,0 +1,25 @@
+<h2 style="margin-bottom:15px"> Список проблем и решений </h2>
+<table class="table table-hover table-condensed table-bordered">
+   <thead>
+      <tr>
+         <td>Проблема</td>
+         <td>Решение</td>
+         <td>Оценка</td>
+      </tr>
+   </thead>
+   <tbody>
+      {{#each issues}}
+       <tr>
+         <td>{{this.issue}}</td>
+         <td>{{this.solution}}</td>
+         <td width ="250px">
+            <form method="post" action='/rate'>
+               <input type="hidden" name="id" value={{this.id}}>
+               <input id="input-id" type="text" name="rate" class="rating" data-size="xxs" value={{this.mark}}>
+               <button type="submit" class="btn btn-default btn-s" value="Обновить">Обновить</button>
+            </form>
+         </td>
+       </tr>
+    {{/each}}
+   </tbody>
+</table>
