@@ -1,6 +1,7 @@
-### База решений. Никита Макаров. 2017.
+IssueList. Nikita Makarov. 2017.
+(Node.js, Handlebars, MongoDB, mySQL)
 
-### Установка и запуск
+Installation and start:
 
 ```sh
 $ npm install
