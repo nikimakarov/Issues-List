@@ -16,8 +16,8 @@ exports.showForMark = function(db, res) {
 
 // Добавление данных (Пользователь 1)
 exports.add = function(db, req, res) {
-    let issue = req.body.problem;
-    let solution = req.body.solution;
+    var issue = req.body.problem;
+    var solution = req.body.solution;
     db.query(
         "INSERT INTO issue (issue, solution, mark) VALUES(?, ?, ?)",
         [issue, solution, 0],
@@ -30,7 +30,7 @@ exports.add = function(db, req, res) {
 
 // Удаление данных (Пользователь 1)
 exports.delete = function(db, req, res) {
-    let id = req.body['delete'];
+    var id = req.body['delete'];
     db.query(
         "DELETE FROM issue WHERE id=?",
         [id],
@@ -43,8 +43,8 @@ exports.delete = function(db, req, res) {
 
 // Обновление данных (Пользователь 1)
 exports.update = function(db, req, res) {
-    let id = req.query.id;
-    let problem = {};
+    var id = req.query.id;
+    var problem = {};
     db.query(
         "SELECT issue, solution FROM issue WHERE id=?",
         [id],
@@ -60,9 +60,9 @@ exports.update = function(db, req, res) {
 
 // Добавление данных (Пользователь 1)
 exports.updateDB = function(db, req, res) {
-    let issue = req.body.issue;
-    let solution = req.body.solution;
-    let id = req.query.id;
+    var issue = req.body.issue;
+    var solution = req.body.solution;
+    var id = req.query.id;
     db.query(
         "UPDATE issue SET issue=?, solution=? WHERE id=?",
         [issue, solution, id],
@@ -75,8 +75,8 @@ exports.updateDB = function(db, req, res) {
 
 // Оценка данных (Пользователь 2)
 exports.rate = function(db, req, res) {
-    let mark = req.body.rate;
-    let id = req.body.id;
+    var mark = req.body.rate;
+    var id = req.body.id;
     db.query(
         "UPDATE issue SET mark=? WHERE id=?",
         [mark, id],
