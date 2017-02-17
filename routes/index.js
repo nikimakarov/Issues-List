@@ -5,10 +5,10 @@ var issue = require('./issue.js');
 
 // Создание соединения к базе данных
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'admin',
-  database : 'issuelist'
+  host     : 'mysql://mysql:3306/',
+  user     : 'user065',
+  password : 'e73eVWg4v5VIKWTI',
+  database : 'issueList'
 });
 
 // Проверка соединения
