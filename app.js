@@ -11,7 +11,14 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://userC6U:GyIp4NMxpPXV6T7D@mongodb/issuedb');
+var db_name = "issuedb";
+
+mongodb_connection_string = 'mongodb://localhost/' + db_name;
+
+if(process.env.OPENSHIFT_MONGODB_DB_URL){
+  mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + db_name;
+}
+
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -68,7 +75,7 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.OPENSHIFT_NODEJS_PORT || 3000));
 
 app.listen(app.get('port'), function(){
 	console.log('Server started on port ' + app.get('port'));
