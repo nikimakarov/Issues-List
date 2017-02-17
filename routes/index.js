@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var issue = require('./issue.js');
-
+var host = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
 // Создание соединения к базе данных
 var connection = mysql.createConnection({
-  host     : 'mysql://mysql:3306/',
-  user     : 'user065',
-  password : 'e73eVWg4v5VIKWTI',
+  host     :  host,
+  user     : 'root',
+  password : 'admin',
   database : 'issueList'
 });
 
